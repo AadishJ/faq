@@ -1,10 +1,15 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 
-const FAQs = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+type FAQ = {
+  question: string;
+  answer: string;
+};
 
-  const faqs = [
+const FAQs: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const faqs: FAQ[] = [
     {
       question: 'What is Ayush-veda?',
       answer: 'Ayush-veda is a startup registration portal exclusively designed for Ayurvedic startups. It simplifies the registration process for Ayurvedic ventures, enabling efficient collaboration among startups, investors, and stakeholders.',
@@ -51,7 +56,7 @@ const FAQs = () => {
     },
   ];
 
-  const toggleAnswer = (index) => {
+  const toggleAnswer = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
@@ -59,7 +64,7 @@ const FAQs = () => {
     <div className="max-w-2xl mx-auto p-5">
       <h2 className="text-2xl font-semibold mb-4 text-green-600">Frequently Asked Questions (FAQs)</h2>
       <div className="border border-green-300 rounded-lg shadow-md">
-        {faqs.map((faq, index) => (
+        {faqs.map((faq, index: number) => (
           <div key={index} className="border-b border-green-200">
             <div 
               className="flex justify-between items-center p-4 cursor-pointer hover:bg-green-100" 
